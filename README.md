@@ -12,7 +12,8 @@ Weather App to check weather on specific city.
 
 [Live Demo](https://weather-app-xi-lac-96.vercel.app/)
 
-![Project Screenshot]()
+![project2](https://github.com/user-attachments/assets/0734d998-9b58-446a-b19f-e3a6c5a86640)
+
 
 ## 🛠 Tech Stack
 
