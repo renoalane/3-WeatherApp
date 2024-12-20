@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Footer from "../components/Footer";
 import axios from "axios";
 import ResultWeather from "../components/ResultWeather";
@@ -8,8 +8,6 @@ const WeatherApp = () => {
   const [weather, setWeather] = useState();
 
   const APIKEY = "39c73fc8bcd015254683b98855d14051";
-
-  useEffect(() => {}, [location]);
 
   const weatherFetch = async (city: string = "") => {
     const response = await axios.get(
@@ -25,11 +23,16 @@ const WeatherApp = () => {
   };
 
   const handleChangeLocation = async (
-    e: React.ChangeEvent<HTMLInputElement>,
+    e: React.KeyboardEvent<HTMLInputElement>,
   ) => {
-    setLocation(e.target.value);
-    const res = await weatherFetch(location);
-    setWeather(res);
+    if (e.currentTarget.value !== "") {
+      setLocation(e.currentTarget.value);
+      const res = await weatherFetch(location);
+      setWeather(res);
+    } else {
+      setLocation("");
+      setWeather(undefined);
+    }
   };
 
   return (
@@ -39,8 +42,7 @@ const WeatherApp = () => {
         <input
           name="location"
           type="text"
-          value={location}
-          onChange={handleChangeLocation}
+          onKeyUp={handleChangeLocation}
           className="border border-black p-1 w-full text-black"
         />
       </div>
