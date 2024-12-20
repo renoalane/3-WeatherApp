@@ -5,7 +5,7 @@ import ResultWeather from "../components/ResultWeather";
 
 const WeatherApp = () => {
   const [location, setLocation] = useState<string>("");
-  const [weather, setWeather] = useState([]);
+  const [weather, setWeather] = useState();
 
   const APIKEY = "39c73fc8bcd015254683b98855d14051";
 
