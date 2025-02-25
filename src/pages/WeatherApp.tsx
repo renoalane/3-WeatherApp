@@ -4,8 +4,7 @@ import axios from "axios";
 import ResultWeather from "../components/ResultWeather";
 
 const WeatherApp = () => {
-  const [location, setLocation] = useState<string>("");
-  const [weather, setWeather] = useState();
+  const [weather, setWeather] = useState<object>();
 
   const APIKEY = "39c73fc8bcd015254683b98855d14051";
 
@@ -23,14 +22,12 @@ const WeatherApp = () => {
   };
 
   const handleChangeLocation = async (
-    e: React.KeyboardEvent<HTMLInputElement>,
+    e: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    if (e.currentTarget.value !== "") {
-      setLocation(e.currentTarget.value);
-      const res = await weatherFetch(location);
+    if (e.target.value !== "") {
+      const res = await weatherFetch(e.target.value);
       setWeather(res);
     } else {
-      setLocation("");
       setWeather(undefined);
     }
   };
@@ -42,7 +39,7 @@ const WeatherApp = () => {
         <input
           name="location"
           type="text"
-          onKeyUp={handleChangeLocation}
+          onChange={handleChangeLocation}
           className="border border-black p-1 w-full text-black"
         />
       </div>
