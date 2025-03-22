@@ -11,7 +11,7 @@ const Footer = () => {
       </div>
       <div className="flex gap-2 flex-col justify-center items-center">
         <a
-          href="https://google.com"
+          href="https://github.com/renoalane"
           target="_blank"
           className="flex gap-3 hover:text-cyan-500"
         >
@@ -19,7 +19,7 @@ const Footer = () => {
           <span>renoalane</span>
         </a>
         <a
-          href="https://google.com"
+          href="https://www.linkedin.com/in/renoalane/"
           target="_blank"
           className="flex gap-3 hover:text-cyan-500"
         >
